@@ -96,7 +96,7 @@
 </div>
 
 <div class="main-content">
-    <h1>SHELLSHARKS ></h1>
+    <h1 id="typing-text"></h1>
     <div class="main-image">
         <img src="https://via.placeholder.com/400" alt="Placeholder Image" width="400">
     </div>
@@ -120,6 +120,23 @@
             x.className = "navbar";
         }
     }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const text = "SHELLSHARKS >_";
+        let index = 0;
+        const speed = 100; // Adjust typing speed here
+        const typingText = document.getElementById("typing-text");
+
+        function typeWriter() {
+            if (index < text.length) {
+                typingText.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+        typeWriter();
+    });
 </script>
 
 </body>
