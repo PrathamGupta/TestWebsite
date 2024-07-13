@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Page</title>
+    <title>Shellsharks Style Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto Mono', monospace;
+            background-color: #000;
+            color: #fff;
             margin: 0;
             padding: 0;
             display: flex;
@@ -16,14 +19,17 @@
 
         .navbar {
             width: 100%;
-            background-color: #333;
+            background-color: #111;
             overflow: hidden;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
         }
 
         .navbar a {
             float: left;
             display: block;
-            color: white;
+            color: #fff;
             text-align: center;
             padding: 14px 20px;
             text-decoration: none;
@@ -38,8 +44,19 @@
             display: none;
         }
 
-        .main-text, .main-image, .content {
+        .main-content {
+            padding-top: 60px;
+            width: 80%;
             text-align: center;
+            margin-top: 20px;
+        }
+
+        .main-image {
+            margin: 20px 0;
+        }
+
+        .content {
+            text-align: left;
             margin: 20px;
         }
 
@@ -78,17 +95,20 @@
     </a>
 </div>
 
-<div class="main-text">
-    <h1>Main Text in the Center</h1>
-</div>
-
-<div class="main-image">
-    <img src="https://via.placeholder.com/400" alt="Placeholder Image" width="400">
-</div>
-
-<div class="content">
-    <h2>Body or Contents</h2>
-    <p>This is where the body content goes.</p>
+<div class="main-content">
+    <h1>SHELLSHARKS ></h1>
+    <div class="main-image">
+        <img src="https://via.placeholder.com/400" alt="Placeholder Image" width="400">
+    </div>
+    <div class="content">
+        <h2>Recent Posts</h2>
+        <p>07/08/24 > Shark Week 2024 coming soon!</p>
+        <p>05/13/24 CSC at Home (Part 3): Vulnerability Management</p>
+        <p>05/12/24 CSC at Home (Part 2): Software Inventory and Control</p>
+        <p>05/11/24 CSC at Home (Part 1): Hardware Inventory and Control</p>
+        <p>05/09/24 Blogging Methodology</p>
+        <!-- Add more posts as needed -->
+    </div>
 </div>
 
 <script>
