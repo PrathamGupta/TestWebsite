@@ -47,11 +47,15 @@
         .main-content {
             padding-top: 60px;
             width: 80%;
-            text-align: left;
             margin-top: 20px;
         }
 
+        .main-text {
+            text-align: center; /* Center align main text */
+        }
+
         .main-image {
+            text-align: center;
             margin: 20px 0;
         }
 
@@ -59,6 +63,7 @@
             display: flex;
             justify-content: space-between;
             margin: 20px;
+            text-align: left; /* Left align content */
         }
 
         .column {
@@ -70,7 +75,6 @@
             padding: 20px;
             margin: 10px 0;
             border-radius: 10px;
-            align-items: left;
         }
 
         .typing-effect::after {
@@ -129,7 +133,9 @@
 </div>
 
 <div class="main-content">
-    <h1><span id="typing-text" class="typing-effect"></span></h1>
+    <div class="main-text">
+        <h1><span id="typing-text" class="typing-effect"></span></h1>
+    </div>
     <div class="main-image">
         <img src="./images/only_white_lines_transparent.png" alt="Placeholder Image" width="400">
     </div>
