@@ -129,18 +129,7 @@
 
 <div class="main-content">
     <h1><span id="typing-text" class="typing-effect"></span></h1>
-    <div class="main-image">
-        <img src="./images/only_white_lines_transparent.png" alt="Placeholder Image" width="400">
-    </div>
-    <div class="content">
-        <div class="column" id="experience">
-            <h2>Experience</h2>
-        </div>
-        <div class="column" id="projects">
-            <h2>Projects</h2>
-        </div>
-    </div>
-</div>
+
 
 <script>
     function toggleMenu() {
@@ -168,17 +157,6 @@
 
         typeWriter();
 
-        function loadContent(id, file) {
-            fetch(file)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById(id).innerHTML += data;
-                })
-                .catch(error => console.error('Error loading content:', error));
-        }
-
-        loadContent('experience', './pages/experience.html');
-        loadContent('projects', './pages/projects.html');
     });
 </script>
 
