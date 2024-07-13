@@ -60,20 +60,17 @@
             margin: 20px;
         }
 
-        .typing-effect {
-            display: inline-block;
-            border-right: 2px solid;
-            white-space: nowrap;
-            overflow: hidden;
+        .typing-effect::after {
+            content: '_';
             animation: blink-caret 1s step-end infinite;
         }
 
         @keyframes blink-caret {
             from, to {
-                border-color: transparent;
+                opacity: 1;
             }
             50% {
-                border-color: white;
+                opacity: 0;
             }
         }
 
@@ -139,7 +136,7 @@
     }
 
     document.addEventListener("DOMContentLoaded", function() {
-        const text = "SHELLSHARKS >_";
+        const text = "SHELLSHARKS >";
         let index = 0;
         const speed = 100; // Adjust typing speed here
         const typingText = document.getElementById("typing-text");
