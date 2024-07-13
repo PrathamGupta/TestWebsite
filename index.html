@@ -56,14 +56,13 @@
         }
 
         .content {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            display: flex;
+            justify-content: space-between;
             margin: 20px;
         }
 
-        .content h2 {
-            grid-column: span 2;
+        .column {
+            width: 48%;
         }
 
         .typing-effect::after {
@@ -101,7 +100,10 @@
                 text-align: left;
             }
             .content {
-                grid-template-columns: 1fr;
+                flex-direction: column;
+            }
+            .column {
+                width: 100%;
             }
         }
     </style>
@@ -124,19 +126,20 @@
         <img src="https://via.placeholder.com/400" alt="Placeholder Image" width="400">
     </div>
     <div class="content">
-        <h2>Recent Posts</h2>
-        <div>07/08/24 > Shark Week 2024 coming soon!</div>
-        <div>05/13/24 CSC at Home (Part 3): Vulnerability Management</div>
-        <div>05/12/24 CSC at Home (Part 2): Software Inventory and Control</div>
-        <div>05/11/24 CSC at Home (Part 1): Hardware Inventory and Control</div>
-        <div>05/09/24 Blogging Methodology</div>
-        <div>05/06/24 An Ode to Lost Friends</div>
-        <div>05/03/24 HIRING:::URGENT:::SECURITYSPECIALIST:::REMOTE</div>
-        <div>04/09/24 A Multiplicity of Writing</div>
-        <div>04/09/24 Creating an Activity Feed with Jekyll</div>
-        <div>03/31/24 xz/liblzma Compromise Link Roundup</div>
-        <div>03/28/24 Owning My Own Social</div>
-        <!-- Add more posts as needed -->
+        <div class="column">
+            <h2>Column 1</h2>
+            <p>07/08/24 > Shark Week 2024 coming soon!</p>
+            <p>05/13/24 CSC at Home (Part 3): Vulnerability Management</p>
+            <p>05/12/24 CSC at Home (Part 2): Software Inventory and Control</p>
+            <p>05/11/24 CSC at Home (Part 1): Hardware Inventory and Control</p>
+        </div>
+        <div class="column">
+            <h2>Column 2</h2>
+            <p>05/09/24 Blogging Methodology</p>
+            <p>05/06/24 An Ode to Lost Friends</p>
+            <p>05/03/24 HIRING:::URGENT:::SECURITYSPECIALIST:::REMOTE</p>
+            <p>04/09/24 A Multiplicity of Writing</p>
+        </div>
     </div>
 </div>
 
