@@ -65,6 +65,13 @@
             width: 48%;
         }
 
+        .card {
+            background-color: #111;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+        }
+
         .typing-effect::after {
             content: '_';
             animation: blink-caret 1s step-end infinite;
@@ -126,19 +133,11 @@
         <img src="https://via.placeholder.com/400" alt="Placeholder Image" width="400">
     </div>
     <div class="content">
-        <div class="column">
-            <h2><b>Experience</b></h2>
-            <p>Cybersecurity Intern</p>
-            <p>GenAI Intern</p>
-            <p>Software Developer Engineer</p>
-            <p>Research Intern</p>
+        <div class="column" id="experience">
+            <h2>Experience</h2>
         </div>
-        <div class="column">
+        <div class="column" id="projects">
             <h2>Projects</h2>
-            <p>Projetc 1</p>
-            <p>Projetc 2</p>
-            <p>Projetc 3</p>
-            <p>Projetc 4</p>
         </div>
     </div>
 </div>
@@ -168,6 +167,19 @@
         }
 
         typeWriter();
+
+        function loadContent(id, file) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML += data;
+                })
+                .catch(error => console.error('Error loading content:', error));
+        }
+
+        var baseUrl = "https://prathamgupta.github.io/TestWebsite/";
+        loadContent('experience', '/experience.html');
+        loadContent('projects', '/projects.html');
     });
 </script>
 
