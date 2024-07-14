@@ -65,16 +65,21 @@
         .column {
             width: 48%;
         }
+
         .column a {
             color: #fff; /* Set hyperlink color to white */
             text-decoration: none;
-            text-transform: none;
+            text-transform: none; /* Ensure text is not transformed to uppercase */
+        }
+
+        .column a i {
+            text-transform: none; /* Ensure text within icons is not transformed */
         }
 
         .column a:hover {
-            color: #39DA39; /* Set hyperlink color to white */
-            text-decoration: underline;
-            text-transform: none;
+            color: #39DA39; /* Set hyperlink color on hover */
+            text-decoration: underline; /* Optional: underline on hover */
+            text-transform: none; /* Ensure text is not transformed on hover */
         }
 
         .card {
@@ -128,15 +133,14 @@
             .column a {
                 color: #fff; /* Set hyperlink color to white */
                 text-decoration: none;
-                text-transform: none;
+                text-transform: none; /* Ensure text is not transformed to uppercase */
             }
 
             .column a:hover {
-                color: #39DA39; /* Set hyperlink color to white */
-                text-decoration: underline;
-                text-transform: none;
+                color: #39DA39; /* Set hyperlink color on hover */
+                text-decoration: underline; /* Optional: underline on hover */
+                text-transform: none; /* Ensure text is not transformed on hover */
             }
-
         }
     </style>
 </head>
@@ -169,11 +173,11 @@
     <div class="content">
         <div class="column" id="github">
             <h2>$cat GitHub</h2>
-            <a href="https://github.com/prathamgupta" target="_blank" class="text-xl duration-200 ease-in-out"><i class="fab fa-github"> PrathamGupta</i></a>
+            <a href="https://github.com/prathamgupta" target="_blank" class="text-xl duration-200 ease-in-out"><i class="fab fa-github"></i> PrathamGupta</a>
         </div>
         <div class="column" id="twitter">
             <h2>$cat Twitter</h2>
-            <a href="https://twitter.com/prathammguptaa" target="_blank" class="text-xl duration-200 ease-in-out"><i class="fab fa-x-twitter"> PrathammGuptaa</i></a>
+            <a href="https://twitter.com/prathammguptaa" target="_blank" class="text-xl duration-200 ease-in-out"><i class="fab fa-x-twitter"></i> PrathammGuptaa</a>
         </div>
     </div>
 </div>
