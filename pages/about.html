@@ -63,6 +63,7 @@
 
         .column {
             width: 48%;
+            color: #fff;
         }
 
         .card {
@@ -70,6 +71,7 @@
             padding: 20px;
             margin: 10px 0;
             border-radius: 10px;
+            color: #fff;
         }
 
         .typing-effect::after {
@@ -128,8 +130,27 @@
 </div>
 
 <div class="main-content">
-    <h1><span id="typing-text" class="typing-effect"></span></h1>
-
+    <div class="main-text">
+        <h1><span id="typing-text" class="typing-effect"></span></h1>
+    </div>
+    <h2>$cat About Me</h2>
+    <div class="card">
+        <p>Cybersecurity Specialist and Software Developer, driven and detail-oriented with a solid foundation in cybersecurity & computer science. Combination of rigorous academic training, robust technical skills, and practical industry experience positions me as a dynamic contributor to the cybersecurity and software development fields. Work has been characterized by a dedication to efficiency, security, and innovation.</p>
+    </div>
+    <h2>$cat Education</h2>
+    <div class="content">
+        <div class="column" id="email">
+            <h3>New York University</h3>
+            <p>MS CyberSecurity</p>
+            <img src="../images/nyu1.png" alt="NYU Image" height="30">
+        </div>
+        <div class="column" id="linkedin">
+            <h3>IIIT Delhi</h3>
+            <p>B.Tech Computer Science</p>
+            <img src="../images/iiitd1.png" alt="IIITD Image" height="30">
+        </div>
+    </div>
+</div>
 
 <script>
     function toggleMenu() {
