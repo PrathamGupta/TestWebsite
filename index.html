@@ -78,6 +78,13 @@
             margin: 10px 0;
             border-radius: 10px;
         }
+        .card a {
+            color: #39DA39;
+            cursor: pointer;
+        }
+        .card a:hover {
+            color: #fff;
+        }
 
         .typing-effect::after {
             content: '_';
@@ -91,6 +98,11 @@
             50% {
                 opacity: 0;
             }
+        }
+
+        .more-content {
+            display: none;
+            margin-top: 10px;
         }
 
         @media screen and (max-width: 600px) {
@@ -189,6 +201,17 @@
         loadContent('experience', './pages/experience.html');
         loadContent('projects', './pages/projects.html');
     });
+
+    function toggleReadMore(event) {
+        const moreContent = event.target.nextElementSibling;
+        if (moreContent.style.display === "none" || moreContent.style.display === "") {
+            moreContent.style.display = "block";
+            event.target.innerText = "Read Less";
+        } else {
+            moreContent.style.display = "none";
+            event.target.innerText = "Read More";
+        }
+    }
 </script>
 
 </body>
