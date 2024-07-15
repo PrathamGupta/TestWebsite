@@ -63,13 +63,14 @@
 
         .content {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             margin: 20px;
-            /* text-align: left; */
         }
 
         .column {
             width: 48%;
+            box-sizing: border-box;
         }
 
         .card {
@@ -79,10 +80,12 @@
             margin: 10px 0;
             border-radius: 10px;
         }
+
         .card a {
             color: #39DA39;
             cursor: pointer;
         }
+
         .card a:hover {
             color: #fff;
         }
@@ -107,28 +110,45 @@
         }
 
         @media screen and (max-width: 600px) {
-            .navbar a {display: none;}
+            .navbar a {
+                display: none;
+            }
+
             .navbar a.icon {
                 float: right;
                 display: block;
             }
+
+            .content {
+                flex-direction: column;
+            }
+
+            .column {
+                width: 100%;
+            }
         }
 
         @media screen and (max-width: 600px) {
-            .navbar.responsive {position: relative;}
+            .navbar.responsive {
+                position: relative;
+            }
+
             .navbar.responsive .icon {
                 position: absolute;
                 right: 0;
                 top: 0;
             }
+
             .navbar.responsive a {
                 float: none;
                 display: block;
                 text-align: left;
             }
+
             .content {
                 flex-direction: column;
             }
+
             .column {
                 width: 100%;
             }
@@ -153,8 +173,7 @@
     </div>
     <h2>$cat Experience</h2>
     <div class="content" id="experience">
-        <!-- <div class="column" id="experience">
-        </div> -->
+        <!-- Content will be loaded here -->
     </div>
 </div>
 
