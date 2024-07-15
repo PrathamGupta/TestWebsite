@@ -206,10 +206,10 @@
         const moreContent = event.target.closest('.card').querySelector('.more-content');
         if (moreContent.style.display === "none" || moreContent.style.display === "") {
             moreContent.style.display = "block";
-            event.target.innerText = "Read Less";
+            event.target.innerText = "Show Less ▴";
         } else {
             moreContent.style.display = "none";
-            event.target.innerText = "Read More";
+            event.target.innerText = "Show More ▾";
         }
     }
 </script>
