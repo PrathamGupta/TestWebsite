@@ -203,7 +203,7 @@
     });
 
     function toggleReadMore(event) {
-        const moreContent = event.target.nextElementSibling;
+        const moreContent = event.target.closest('.card').querySelector('.more-content');
         if (moreContent.style.display === "none" || moreContent.style.display === "") {
             moreContent.style.display = "block";
             event.target.innerText = "Read Less";
