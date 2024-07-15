@@ -150,16 +150,8 @@
     <div class="main-text">
         <h1><span id="typing-text" class="typing-effect"></span></h1>
     </div>
-    <div class="main-image">
-        <img src="./images/only_white_lines_transparent.png" alt="Placeholder Image" width="300">
-    </div>
-    <div class="content">
-        <div class="column" id="experience">
-            <h2>$ls Experience</h2>
-        </div>
-        <div class="column" id="projects">
-            <h2>$ls Projects</h2>
-        </div>
+    <div class="content" id="experience">
+        <h2>$cat Experience</h2>
     </div>
 </div>
 
@@ -198,10 +190,20 @@
                 .catch(error => console.error('Error loading content:', error));
         }
 
-        loadContent('experience', './pages/experienceShort.html');
+        loadContent('experience', './pages/experienceLong.html');
         loadContent('projects', './pages/projects.html');
     });
 
+    function toggleReadMore(event) {
+        const moreContent = event.target.closest('.card').querySelector('.more-content');
+        if (moreContent.style.display === "none" || moreContent.style.display === "") {
+            moreContent.style.display = "block";
+            event.target.innerText = "Show Less ▴";
+        } else {
+            moreContent.style.display = "none";
+            event.target.innerText = "Show More ▾";
+        }
+    }
 </script>
 
 </body>
