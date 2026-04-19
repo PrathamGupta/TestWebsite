@@ -1,554 +1,758 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pratham Gupta</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pratham Gupta — Lead Security Engineer &amp; Privacy Officer</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <!-- SEO -->
+  <meta name="description" content="Pratham Gupta is a Lead Security Engineer and Privacy Officer at XpertDox specializing in red team operations, penetration testing, and cloud security. MS Cybersecurity, NYU (4.0 GPA, Academic Excellence Award).">
+  <meta name="robots" content="index, follow">
 
-        body {
-            font-family: 'Fira Code', monospace;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
-            color: #39DA39;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pratham Gupta — Lead Security Engineer &amp; Privacy Officer">
+  <meta property="og:description" content="Cybersecurity professional specializing in offensive security, red team ops, and cloud security. MS Cybersecurity, NYU (4.0 GPA, Academic Excellence Award). Currently at XpertDox.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://prathamgupta.info">
+  <meta property="og:image" content="https://prathamgupta.info/images/only_white_lines_transparent.png">
+  <meta property="og:site_name" content="Pratham Gupta">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@prathammguptaa">
+  <meta name="twitter:title" content="Pratham Gupta — Lead Security Engineer &amp; Privacy Officer">
+  <meta name="twitter:description" content="Red team ops, offensive security, cloud security. MS Cybersecurity NYU. Currently at XpertDox.">
 
-        .navbar {
-            width: 100%;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(57, 218, 57, 0.2);
-            overflow: hidden;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
 
-        .navbar a {
-            display: block;
-            color: #39DA39;
-            text-align: center;
-            padding: 16px 24px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-        }
+  <style>
+    /* ── Variables ───────────────────────────────────────── */
+    :root {
+      --g:        #39DA39;
+      --g-glow:   rgba(57,218,57,.45);
+      --g-dim:    rgba(57,218,57,.10);
+      --g-border: rgba(57,218,57,.22);
+      --g-hover:  rgba(57,218,57,.55);
+      --bg:       #080808;
+      --bg-card:  rgba(16,16,16,.97);
+      --text:     #c8c8c8;
+      --text-hi:  #f0f0f0;
+      --muted:    #555;
+      --font:     'Fira Code', monospace;
+      --nav-h:    60px;
+      --r:        10px;
+      --ease:     .28s ease;
+    }
 
-        .navbar .nav-links {
-            float: right;
-        }
+    /* ── Reset ───────────────────────────────────────────── */
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:var(--nav-h); }
+    body {
+      font-family:var(--font);
+      background:var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+      line-height:1.65;
+    }
 
-        .navbar .nav-links a {
-            float: left;
-        }
+    /* ── Scrollbar ───────────────────────────────────────── */
+    ::-webkit-scrollbar { width:5px; }
+    ::-webkit-scrollbar-track { background:var(--bg); }
+    ::-webkit-scrollbar-thumb { background:var(--g-border); border-radius:3px; }
+    ::-webkit-scrollbar-thumb:hover { background:var(--g); }
 
-        .navbar .brand {
-            float: left;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
+    /* ── Nav ─────────────────────────────────────────────── */
+    nav {
+      position:fixed; top:0; width:100%; height:var(--nav-h);
+      background:rgba(8,8,8,.88);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--g-border);
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0 6%; z-index:1000;
+      transition:background var(--ease);
+    }
 
-        .navbar a:hover {
-            background: rgba(57, 218, 57, 0.1);
-            color: #ffffff;
-            transform: translateY(-2px);
-        }
+    .brand {
+      font-weight:700; font-size:1rem;
+      color:var(--g); text-decoration:none;
+      letter-spacing:.04em;
+      text-shadow:0 0 16px var(--g-glow);
+    }
 
-        .navbar a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: #39DA39;
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
+    .nav-links {
+      display:flex; align-items:center; gap:2px; list-style:none;
+    }
+    .nav-links a {
+      color:var(--muted); text-decoration:none;
+      font-size:.8rem; padding:6px 11px; border-radius:6px;
+      transition:all var(--ease);
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color:var(--g); background:var(--g-dim);
+    }
+    .nav-links .resume-btn {
+      border:1px solid var(--g-border); color:var(--g);
+      margin-left:8px; border-radius:6px;
+    }
+    .nav-links .resume-btn:hover {
+      background:var(--g); color:var(--bg); border-color:var(--g);
+      box-shadow:0 0 14px var(--g-glow);
+    }
 
-        .navbar a:hover::after {
-            width: 80%;
-        }
+    /* hamburger */
+    .ham { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
+    .ham span { display:block; width:20px; height:2px; background:var(--g); border-radius:2px; transition:.3s; }
+    .ham.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    .ham.open span:nth-child(2) { opacity:0; }
+    .ham.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
 
-        .navbar .icon {
-            display: none;
-        }
+    /* ── Section commons ─────────────────────────────────── */
+    .sec {
+      max-width:1080px; margin:0 auto;
+      padding:88px 6% 56px;
+    }
 
-        .main-content {
-            padding-top: 80px;
-            width: 90%;
-            max-width: 1200px;
-            margin-top: 20px;
-            animation: fadeInUp 1s ease-out;
-        }
+    .sec-kicker {
+      font-size:.72rem; color:var(--muted);
+      letter-spacing:.16em; text-transform:uppercase; margin-bottom:6px;
+    }
 
-        .main-text {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    .sec-title {
+      font-size:1.35rem; color:var(--g); margin-bottom:38px;
+      text-shadow:0 0 18px var(--g-glow);
+    }
+    .sec-title .dim { color:var(--muted); font-weight:300; }
 
-        .main-text h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 0 0 20px rgba(57, 218, 57, 0.5);
-        }
+    /* ── Card ────────────────────────────────────────────── */
+    .card {
+      background:var(--bg-card);
+      border:1px solid var(--g-border);
+      border-radius:var(--r);
+      padding:22px 26px;
+      transition:all var(--ease);
+      position:relative; overflow:hidden;
+    }
+    .card::before {
+      content:''; position:absolute; top:0; left:-100%;
+      width:100%; height:100%;
+      background:linear-gradient(90deg,transparent,rgba(57,218,57,.05),transparent);
+      transition:left .55s ease;
+    }
+    .card:hover::before { left:100%; }
+    .card:hover {
+      border-color:var(--g-hover);
+      box-shadow:0 6px 28px rgba(0,0,0,.45), 0 0 0 1px rgba(57,218,57,.06);
+      transform:translateY(-3px);
+    }
 
-        .main-image {
-            text-align: center;
-            margin: 40px 0;
-            animation: float 3s ease-in-out infinite;
-        }
+    /* ── Hero ────────────────────────────────────────────── */
+    #hero {
+      height:100vh; width:100%;
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      text-align:center;
+      padding:var(--nav-h) 6% 0;
+      overflow:hidden;
+      background:
+        linear-gradient(rgba(57,218,57,.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(57,218,57,.022) 1px, transparent 1px),
+        radial-gradient(ellipse 90% 70% at 50% 55%, rgba(57,218,57,.08) 0%, transparent 100%),
+        var(--bg);
+      background-size:52px 52px, 52px 52px, 100% 100%, 100%;
+    }
 
-        .main-image img {
-            filter: drop-shadow(0 0 20px rgba(57, 218, 57, 0.3));
-            transition: transform 0.3s ease;
-        }
+    .hero-logo {
+      width:180px;
+      filter:drop-shadow(0 0 28px rgba(57,218,57,.4));
+      animation:float 4s ease-in-out infinite;
+      margin-bottom:20px;
+    }
 
-        .main-image img:hover {
-            transform: scale(1.05);
-        }
+    .hero-name {
+      font-size:clamp(1.7rem,4vw,2.6rem);
+      font-weight:700; color:var(--text-hi);
+      letter-spacing:.02em; margin-bottom:10px;
+      text-shadow:0 0 48px rgba(255,255,255,.06);
+    }
 
-        .content {
-            display: flex;
-            justify-content: space-between;
-            margin: 30px 0;
-            text-align: left;
-            gap: 30px;
-        }
+    .hero-typerow {
+      font-size:clamp(.9rem,2vw,1.1rem);
+      color:var(--g); margin-bottom:4px; min-height:1.8em;
+    }
+    .hero-typerow .dim { color:var(--muted); font-weight:300; }
+    #cursor {
+      display:inline-block; width:2px; height:1em;
+      background:var(--g); margin-left:2px;
+      vertical-align:text-bottom;
+      animation:blink 1s step-end infinite;
+    }
 
-        .column {
-            width: 48%;
-            animation: fadeInUp 1s ease-out;
-        }
+    .hero-at {
+      font-size:.85rem; color:var(--muted); margin-bottom:18px;
+    }
 
-        .column h2 {
-            color: #39DA39;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-            text-shadow: 0 0 10px rgba(57, 218, 57, 0.3);
-        }
+    .badge-row {
+      display:flex; flex-wrap:wrap; gap:7px;
+      justify-content:center; margin-bottom:24px;
+    }
+    .badge {
+      font-size:.74rem; color:var(--g);
+      border:1px solid var(--g-border);
+      background:var(--g-dim);
+      padding:4px 12px; border-radius:20px;
+    }
 
-        .column a {
-            color: #ffffff;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
+    .cta-row {
+      display:flex; gap:12px; flex-wrap:wrap; justify-content:center;
+    }
 
-        .column a i {
-            margin-right: 10px;
-            transition: transform 0.3s ease;
-        }
+    .btn {
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 22px; border-radius:8px;
+      font-family:var(--font); font-size:.86rem;
+      text-decoration:none; cursor:pointer; border:none;
+      transition:all var(--ease);
+    }
+    .btn-solid {
+      background:var(--g); color:var(--bg); font-weight:700;
+    }
+    .btn-solid:hover {
+      background:#52f052;
+      box-shadow:0 0 22px var(--g-glow);
+      transform:translateY(-2px);
+    }
+    .btn-ghost {
+      border:1px solid var(--g-border); color:var(--g);
+    }
+    .btn-ghost:hover {
+      border-color:var(--g); background:var(--g-dim);
+      transform:translateY(-2px);
+    }
 
-        .column a:hover {
-            color: #39DA39;
-            text-decoration: none;
-            transform: translateX(5px);
-        }
+    /* ── About ───────────────────────────────────────────── */
+    .about-text {
+      font-size:.92rem; color:var(--text);
+      line-height:1.95; max-width:760px;
+    }
+    .about-text p + p { margin-top:14px; }
 
-        .column a:hover i {
-            transform: scale(1.2);
-        }
+    /* ── Experience ──────────────────────────────────────── */
+    .exp-grid {
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+    }
+    .exp-card:first-child { grid-column:1 / -1; }
+    .exp-card h3 { font-size:.92rem; font-weight:700; color:var(--text-hi); margin-bottom:6px; }
+    .exp-card .exp-co { font-size:.82rem; color:var(--g); margin-bottom:2px; }
+    .exp-card .exp-date { font-size:.76rem; color:var(--muted); margin-bottom:10px; }
+    .show-more-link {
+      font-size:.8rem; color:var(--g); cursor:pointer;
+      text-decoration:none; background:none; border:none;
+      font-family:var(--font); padding:0;
+    }
+    .show-more-link:hover { color:#fff; }
+    .more-content { display:none; margin-top:10px; }
+    .more-content p { font-size:.82rem; color:var(--text); line-height:1.65; margin-bottom:6px; }
 
-        .card {
-            background: linear-gradient(145deg, rgba(31, 31, 31, 0.8), rgba(20, 20, 20, 0.9));
-            border: 1px solid rgba(57, 218, 57, 0.2);
-            color: #ffffff;
-            padding: 25px;
-            margin: 15px 0;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
+    /* ── Projects ────────────────────────────────────────── */
+    .proj-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:18px;
+    }
+    .proj-card h3 { font-size:.92rem; font-weight:700; color:var(--text-hi); margin-bottom:10px; }
+    .proj-card p  { font-size:.82rem; color:var(--text); line-height:1.7; margin-bottom:14px; }
+    .proj-link {
+      display:inline-flex; align-items:center; gap:6px;
+      font-size:.78rem; color:var(--g); text-decoration:none;
+      border:1px solid var(--g-border); padding:5px 12px; border-radius:6px;
+      transition:all var(--ease);
+    }
+    .proj-link:hover { background:var(--g-dim); border-color:var(--g); }
 
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(57, 218, 57, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
+    /* ── Skills ──────────────────────────────────────────── */
+    .skills-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+      gap:18px;
+    }
+    .skill-cat h3 {
+      font-size:.82rem; color:var(--g); margin-bottom:14px;
+      padding-bottom:8px; border-bottom:1px solid var(--g-border);
+    }
+    .tags { display:flex; flex-wrap:wrap; gap:7px; }
+    .tag {
+      font-size:.75rem; color:var(--text);
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.07);
+      padding:4px 10px; border-radius:20px;
+      transition:all var(--ease);
+    }
+    .tag:hover { border-color:var(--g-border); color:var(--g); background:var(--g-dim); }
 
-        .card:hover::before {
-            left: 100%;
-        }
+    /* ── Education ───────────────────────────────────────── */
+    .edu-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:18px;
+    }
+    .edu-card { display:flex; align-items:flex-start; gap:16px; }
+    .edu-logo  { height:34px; flex-shrink:0; margin-top:4px; opacity:.88; }
+    .edu-info h3 { font-size:.92rem; color:var(--text-hi); margin-bottom:4px; }
+    .edu-info p  { font-size:.8rem; color:var(--text); line-height:1.5; }
+    .edu-badge {
+      display:inline-block; margin-top:7px; font-size:.72rem;
+      color:var(--g); border:1px solid var(--g-border);
+      padding:2px 9px; border-radius:4px; background:var(--g-dim);
+    }
 
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(57, 218, 57, 0.5);
-            box-shadow: 0 10px 30px rgba(57, 218, 57, 0.2);
-        }
+    /* ── Contact ─────────────────────────────────────────── */
+    .contact-grid {
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+    }
+    a.contact-card {
+      display:flex; align-items:center; gap:14px;
+      padding:18px 22px; text-decoration:none;
+      border-radius:var(--r);
+    }
+    a.contact-card i { font-size:1.25rem; color:var(--g); width:22px; text-align:center; }
+    .contact-label { font-size:.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; }
+    .contact-val   { font-size:.86rem; color:var(--text-hi); margin-top:2px; }
 
-        .card h3 {
-            color: #39DA39;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
+    /* ── Footer ──────────────────────────────────────────── */
+    footer {
+      text-align:center; padding:36px 20px;
+      border-top:1px solid var(--g-border);
+      font-size:.74rem; color:var(--muted);
+    }
+    footer a { color:var(--g); text-decoration:none; }
 
-        .card a {
-            color: #39DA39;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-        }
+    /* ── Animations ──────────────────────────────────────── */
+    @keyframes float {
+      0%,100% { transform:translateY(0); }
+      50%      { transform:translateY(-11px); }
+    }
+    @keyframes blink {
+      from,to { opacity:1; }
+      50%     { opacity:0; }
+    }
 
-        .card a:hover {
-            color: #ffffff;
-            text-shadow: 0 0 10px rgba(57, 218, 57, 0.5);
-        }
+    .reveal {
+      opacity:0; transform:translateY(22px);
+      transition:opacity .55s ease, transform .55s ease;
+    }
+    .reveal.in { opacity:1; transform:translateY(0); }
 
-        .typing-effect::after {
-            content: '_';
-            animation: blink-caret 1s step-end infinite;
-        }
+    /* ── Responsive ──────────────────────────────────────── */
+    @media (max-width:768px) {
+      :root { --nav-h: 56px; }
+      .sec { padding:64px 5% 40px; }
 
-        @keyframes blink-caret {
-            from, to { opacity: 1; }
-            50% { opacity: 0; }
-        }
+      .nav-links {
+        display:none;
+        position:absolute; top:var(--nav-h); left:0; width:100%;
+        flex-direction:column; gap:0;
+        background:rgba(8,8,8,.98);
+        border-bottom:1px solid var(--g-border);
+        padding:10px 5% 16px;
+      }
+      .nav-links.open { display:flex; }
+      .nav-links a { font-size:.88rem; padding:10px 12px; }
+      .ham { display:flex; }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+      .hero-logo { width:140px; margin-bottom:20px; }
+      .hero-name { font-size:clamp(1.5rem,7vw,2.4rem); }
+      .hero-typerow { font-size:clamp(.85rem,3.5vw,1.1rem); }
+      .badge-row { gap:6px; }
+      .badge { font-size:.7rem; padding:3px 10px; }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
+      .exp-grid { grid-template-columns:1fr; }
+      .exp-card:first-child { grid-column:auto; }
+      .skills-grid { grid-template-columns:1fr; }
+      .edu-grid { grid-template-columns:1fr; }
+      .contact-grid { grid-template-columns:1fr; }
+      .proj-grid { grid-template-columns:1fr; }
+    }
 
-        .more-content {
-            display: none;
-            margin-top: 15px;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* Enhanced mobile responsiveness */
-        @media screen and (max-width: 768px) {
-            .main-content {
-                width: 95%;
-                padding-top: 70px;
-            }
-
-            .main-text h1 {
-                font-size: 2rem;
-            }
-
-            .content {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .column {
-                width: 100%;
-            }
-
-            .navbar a {
-                padding: 12px 16px;
-            }
-        }
-
-        @media screen and (max-width: 600px) {
-            .navbar .nav-links a { display: none; }
-            .navbar a.icon {
-                float: right;
-                display: block;
-                padding: 16px 20px;
-            }
-        }
-
-        @media screen and (max-width: 600px) {
-            .navbar.responsive { position: relative; }
-            .navbar.responsive .icon {
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
-            .navbar.responsive .nav-links a {
-                float: none;
-                display: block;
-                text-align: left;
-            }
-        }
-
-        /* Scrollbar styling */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #1a1a1a;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #39DA39;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #2bb82b;
-        }
-    </style>
+    @media (max-width:480px) {
+      .sec { padding:56px 4% 36px; }
+      .cta-row { flex-direction:column; align-items:center; }
+      .btn { width:200px; justify-content:center; }
+      .hero-logo { width:110px; }
+    }
+  </style>
 </head>
 <body>
 
-<div class="navbar" id="myNavbar">
-    <a href="https://prathamgupta.github.io" class="brand">Pratham Gupta</a>
-    <div class="nav-links">
-        <!-- <a href="https://prathamgupta.github.io/files/Resume.pdf" target="_blank">Resume</a> -->
-        <a href="https://prathamgupta.github.io/pages/about">About</a>
-        <a href="https://prathamgupta.github.io/pages/blog">Blog</a>
-        <a href="https://prathamgupta.github.io/pages/contact">Contact</a>
-        <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
-            &#9776;
-        </a>
-    </div>
-</div>
+<!-- ═══ NAV ════════════════════════════════════════════ -->
+<nav id="nav">
+  <a href="#hero" class="brand">Pratham Gupta</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="pages/blog" class="resume-btn">Blog ↗</a></li>
+  </ul>
+  <div class="ham" id="ham" onclick="toggleNav()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
 
-<div class="main-content">
-    <div class="main-text">
-        <h1><span id="typing-text" class="typing-effect"></span></h1>
+<!-- ═══ HERO ════════════════════════════════════════════ -->
+<section id="hero">
+  <img src="/images/only_white_lines_transparent.png" alt="Pratham Gupta logo" class="hero-logo">
+
+  <h1 class="hero-name">Pratham Gupta</h1>
+
+  <p class="hero-typerow">
+    <span class="dim">$&gt;&nbsp;</span><span id="tw"></span><span id="cursor"></span>
+  </p>
+
+  <p class="hero-at">Lead Security Engineer &amp; Privacy Officer &nbsp;·&nbsp; XpertDox</p>
+
+  <div class="badge-row">
+    <span class="badge">MS Cybersecurity · NYU</span>
+    <span class="badge">4.0 GPA</span>
+    <span class="badge">Academic Excellence Award</span>
+    <span class="badge">Red Team · Offensive Security</span>
+    <span class="badge">Cloud Security</span>
+  </div>
+
+  <div class="cta-row">
+    <a href="pages/blog" class="btn btn-solid">
+      <i class="fas fa-pen-nib"></i> Blog
+    </a>
+    <a href="#contact" class="btn btn-ghost">
+      <i class="fas fa-terminal"></i> Contact Me
+    </a>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══════════════════════════════════════════ -->
+<section id="about" class="sec">
+  <p class="sec-kicker">Who I am</p>
+  <h2 class="sec-title"><span class="dim">$cat </span>about.txt</h2>
+  <div class="about-text reveal">
+    <p>
+      Cybersecurity professional with a Master's in Cybersecurity from NYU (4.0 GPA, Academic Excellence Award)
+      and a B.Tech in Computer Science from IIIT Delhi. Currently serving as Lead Security Engineer &amp;
+      Privacy Officer at XpertDox, with prior experience at Protiviti (global consulting) and PayTM (fintech).
+    </p>
+    <p>
+      Specialized in red team operations, offensive security, and advanced cloud security — with hands-on
+      expertise simulating real-world attacks, conducting adversarial penetration tests, and uncovering
+      vulnerabilities in enterprise and cloud-native environments. Skilled at building custom attack tooling,
+      automating security assessments, and embedding offensive practices into CI/CD pipelines, while bridging
+      technical rigor with compliance requirements and clear stakeholder communication.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ EXPERIENCE ══════════════════════════════════════ -->
+<section id="experience" class="sec">
+  <p class="sec-kicker">Work History</p>
+  <h2 class="sec-title"><span class="dim">$ls </span>experience/</h2>
+  <div class="exp-grid">
+
+    <div class="card exp-card reveal">
+      <h3>Lead Security Engineer &amp; Privacy Officer</h3>
+      <div class="exp-co">XpertDox</div>
+      <div class="exp-date">Jun 2025 – Present</div>
+      <p><a class="show-more-link" onclick="toggleReadMore(event)">Show More ▾</a></p>
+      <div class="more-content">
+        <p>Conducted multiple penetration tests, enhancing system vulnerability identification and mitigation strategies.</p>
+        <p>Created and maintained the PenTestTools repository, utilized by a growing community for cybersecurity testing and training.</p>
+        <p>Developed a social engineering detection tool to analyze and mitigate domain-specific attacks.</p>
+        <p>Implemented advanced security profiling techniques, contributing to improved threat detection accuracy.</p>
+      </div>
     </div>
-    <div class="main-image">
-        <img src="./images/only_white_lines_transparent.png" alt="Placeholder Image" width="300">
+
+    <div class="card exp-card reveal">
+      <h3>Cybersecurity Intern</h3>
+      <div class="exp-co">Protiviti</div>
+      <div class="exp-date">Jun 2024 – Sep 2024</div>
+      <p><a class="show-more-link" onclick="toggleReadMore(event)">Show More ▾</a></p>
+      <div class="more-content">
+        <p>Conducted multiple penetration tests on client environments, improving vulnerability identification and mitigation processes.</p>
+        <p>Developed and deployed a social engineering detection tool to mitigate domain-specific attacks.</p>
+        <p>Implemented advanced security profiling techniques, contributing to improved threat detection accuracy.</p>
+      </div>
     </div>
-    <div style="text-align: center; margin: 20px 0;">
-        <p style="color: #ffffff; font-size: 1.2rem; text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);">
-            Check out my <a href="https://prathamgupta.github.io/pages/blog" style="color: #39DA39; text-decoration: none; font-weight: bold; text-transform: uppercase; transition: all 0.3s ease; text-shadow: 0 0 10px rgba(57, 218, 57, 0.5);" 
-               onmouseover="this.style.color='#ffffff'; this.style.textShadow='0 0 15px rgba(57, 218, 57, 0.8)'"
-               onmouseout="this.style.color='#39DA39'; this.style.textShadow='0 0 10px rgba(57, 218, 57, 0.5)'">BLOG!!!!</a>
-        </p>
+
+    <div class="card exp-card reveal">
+      <h3>GenAI Intern</h3>
+      <div class="exp-co">SymphonyAI</div>
+      <div class="exp-date">Jun 2024 – Aug 2024</div>
+      <p><a class="show-more-link" onclick="toggleReadMore(event)">Show More ▾</a></p>
+      <div class="more-content">
+        <p>Contributed to development of AI-driven enterprise solutions, creating and training machine learning models.</p>
+        <p>Deployed AI applications that streamlined business processes and improved operational outcomes.</p>
+      </div>
     </div>
-    <br><br>
-    <h2 style="text-align: center;">$cat About Me</h2>
-    <div class="content card" style="text-align: center;">
-        <p>Cybersecurity professional with a Master’s in Cybersecurity from NYU (4.0 GPA, Academic Excellence Award) and a B.Tech in Computer Science from IIIT Delhi. Currently working as a Cybersecurity Administrator at Xpertdox, with prior experience as a Software Engineer at PayTM and an internship at Protiviti, gaining hands-on exposure to both financial services and global consulting environments.<br><br>
-            Specialized in red team operations, offensive security, and advanced cloud security, with expertise in simulating real-world attacks, performing adversarial penetration testing, and identifying vulnerabilities in enterprise and cloud-native systems. Skilled in building custom attack tools, automating security assessments, and embedding offensive practices into CI/CD pipelines, while effectively balancing technical rigor with compliance and stakeholder communication to strengthen organizational cyber resilience.
-            </p>
+
+    <div class="card exp-card reveal">
+      <h3>Software Developer</h3>
+      <div class="exp-co">PayTM — India's Biggest Digital Finance Company</div>
+      <div class="exp-date">Jun 2022 – Aug 2023</div>
+      <p><a class="show-more-link" onclick="toggleReadMore(event)">Show More ▾</a></p>
+      <div class="more-content">
+        <p>Developed and maintained various financial applications serving millions of daily active users.</p>
+        <p>Enhanced payment gateway integrations and optimized backend services for scalability and reliability.</p>
+      </div>
     </div>
-    <div class="content">
-        <div class="column" id="experience">
-            <h2>$ls Experience</h2>
-        </div>
-        <div class="column" id="projects">
-            <h2>$ls Projects</h2>
-        </div>
+
+    <div class="card exp-card reveal">
+      <h3>Research Intern</h3>
+      <div class="exp-co">AmpViv Healthcare</div>
+      <div class="exp-date">Sep 2020 – Mar 2021</div>
+      <p><a class="show-more-link" onclick="toggleReadMore(event)">Show More ▾</a></p>
+      <div class="more-content">
+        <p>Developed predictive models for patient outcomes via data collection, preprocessing, and statistical analysis.</p>
+        <p>Identified key health indicators to improve patient care strategies.</p>
+      </div>
     </div>
-    <h2 style="text-align: center;">$ls Contact</h2>
-    <div class="content">
-        <div class="column" id="email" style="text-align: center;">
-            <h2>$cat Email</h2>
-            <p><a href="mailto:pratham.gupta@nyu.edu" target="_blank" class="text-xl duration-200 ease-in-out"><i class="fas fa-envelope"></i> pratham.gupta2k@gmail.com</a></p>
-        </div>
-        <div class="column" id="linkedin" style="text-align: center;">
-            <h2>$cat LinkedIn</h2>
-            <a href="https://www.linkedin.com/in/prathamguptaaa" target="_blank" class="text-xl duration-200 ease-in-out"><i class="fab fa-linkedin"></i> PrathamGuptaaa</a>
-        </div>
+
+  </div>
+</section>
+
+<!-- ═══ PROJECTS ════════════════════════════════════════ -->
+<section id="projects" class="sec">
+  <p class="sec-kicker">Selected Work</p>
+  <h2 class="sec-title"><span class="dim">$ls </span>projects/</h2>
+  <div class="proj-grid">
+
+    <div class="card proj-card reveal">
+      <h3>LintAid</h3>
+      <p>CLI tool that seamlessly integrates linters into existing projects for various programming languages.</p>
+      <a href="https://github.com/PrathamGupta/LintAid" class="proj-link" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
     </div>
-    <div class="content">
-        <div class="column" id="github" style="text-align: center;">
-            <h2>$cat GitHub</h2>
-            <a href="https://github.com/prathamgupta" target="_blank" class="text-xl duration-200 ease-in-out"><i class="fab fa-github"></i> PrathamGupta</a>
-        </div>
-        <div class="column" id="twitter" style="text-align: center;">
-            <h2>$cat Twitter</h2>
-            <a href="https://twitter.com/prathammguptaa" target="_blank" class="text-xl duration-200 ease-in-out"><i class="fab fa-x-twitter"></i> PrathammGuptaa</a>
-        </div>
+
+    <div class="card proj-card reveal">
+      <h3>OpenTelemetry Security Assessment</h3>
+      <p>Crafted a security assessment for the OpenSSF project of OpenTelemetry.</p>
+      <a href="https://github.com/PrathamGupta/tag-security/blob/main/assessments/projects/open-telemetry/self-assessment.md" class="proj-link" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
     </div>
-</div>
+
+    <div class="card proj-card reveal">
+      <h3>PenTestTools</h3>
+      <p>Developed different tools for penetration testing including DNS Resolver, Active IP Finder, and more.</p>
+      <a href="https://github.com/PrathamGupta/PenTestTools" class="proj-link" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+    </div>
+
+    <div class="card proj-card reveal">
+      <h3>DESy: Decentralized Education System</h3>
+      <p>Executed a Government of India project to implement New Education Policies using Blockchain Hyperledger Fabric.</p>
+      <a href="https://github.com/PrathamGupta/DESy" class="proj-link" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ SKILLS ══════════════════════════════════════════ -->
+<section id="skills" class="sec">
+  <p class="sec-kicker">Technical Expertise</p>
+  <h2 class="sec-title"><span class="dim">$cat </span>skills.json</h2>
+  <div class="skills-grid">
+
+    <div class="card skill-cat reveal">
+      <h3>Offensive Security</h3>
+      <div class="tags">
+        <span class="tag">Penetration Testing</span>
+        <span class="tag">Red Team Ops</span>
+        <span class="tag">Social Engineering</span>
+        <span class="tag">Exploit Development</span>
+        <span class="tag">OSINT</span>
+        <span class="tag">Phishing Simulation</span>
+      </div>
+    </div>
+
+    <div class="card skill-cat reveal">
+      <h3>Cloud &amp; DevSecOps</h3>
+      <div class="tags">
+        <span class="tag">AWS Security</span>
+        <span class="tag">Azure</span>
+        <span class="tag">GCP</span>
+        <span class="tag">CI/CD Security</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Zero Trust Architecture</span>
+      </div>
+    </div>
+
+    <div class="card skill-cat reveal">
+      <h3>Frameworks &amp; Standards</h3>
+      <div class="tags">
+        <span class="tag">NIST CSF</span>
+        <span class="tag">ISO 27001</span>
+        <span class="tag">MITRE ATT&amp;CK</span>
+        <span class="tag">OWASP Top 10</span>
+        <span class="tag">SOC 2</span>
+        <span class="tag">GDPR / Privacy</span>
+      </div>
+    </div>
+
+    <div class="card skill-cat reveal">
+      <h3>Development</h3>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">Bash / Shell</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Hyperledger Fabric</span>
+        <span class="tag">Machine Learning</span>
+        <span class="tag">REST APIs</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ EDUCATION ════════════════════════════════════════ -->
+<section id="education" class="sec">
+  <p class="sec-kicker">Academic Background</p>
+  <h2 class="sec-title"><span class="dim">$cat </span>education.txt</h2>
+  <div class="edu-grid">
+
+    <div class="card edu-card reveal">
+      <img src="/images/nyu1.png" alt="New York University" class="edu-logo">
+      <div class="edu-info">
+        <h3>New York University</h3>
+        <p>MS in Cybersecurity<br>4.0 GPA</p>
+        <span class="edu-badge">Academic Excellence Award</span>
+      </div>
+    </div>
+
+    <div class="card edu-card reveal">
+      <img src="/images/iiitd1.png" alt="IIIT Delhi" class="edu-logo">
+      <div class="edu-info">
+        <h3>IIIT Delhi</h3>
+        <p>B.Tech in Computer Science</p>
+        <span class="edu-badge">Dean's List</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ CONTACT ══════════════════════════════════════════ -->
+<section id="contact" class="sec">
+  <p class="sec-kicker">Get In Touch</p>
+  <h2 class="sec-title"><span class="dim">$cat </span>contact.txt</h2>
+  <div class="contact-grid">
+
+    <a href="mailto:pratham.gupta2k@gmail.com" class="card contact-card reveal">
+      <i class="fas fa-envelope"></i>
+      <div>
+        <div class="contact-label">Email</div>
+        <div class="contact-val">pratham.gupta2k@gmail.com</div>
+      </div>
+    </a>
+
+    <a href="https://www.linkedin.com/in/prathamguptaaa" class="card contact-card reveal" target="_blank" rel="noopener">
+      <i class="fab fa-linkedin"></i>
+      <div>
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-val">PrathamGuptaaa</div>
+      </div>
+    </a>
+
+    <a href="https://github.com/prathamgupta" class="card contact-card reveal" target="_blank" rel="noopener">
+      <i class="fab fa-github"></i>
+      <div>
+        <div class="contact-label">GitHub</div>
+        <div class="contact-val">PrathamGupta</div>
+      </div>
+    </a>
+
+    <a href="https://twitter.com/prathammguptaa" class="card contact-card reveal" target="_blank" rel="noopener">
+      <i class="fab fa-x-twitter"></i>
+      <div>
+        <div class="contact-label">Twitter / X</div>
+        <div class="contact-val">PrathammGuptaa</div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══════════════════════════════════════════ -->
+<footer>
+  <p>
+    Pratham Gupta &nbsp;·&nbsp;
+    <a href="mailto:pratham.gupta2k@gmail.com">pratham.gupta2k@gmail.com</a>
+    &nbsp;·&nbsp;
+    <a href="pages/blog">Blog</a>
+  </p>
+</footer>
 
 <script>
-    function toggleMenu() {
-        var x = document.getElementById("myNavbar");
-        if (x.className === "navbar") {
-            x.className += " responsive";
-        } else {
-            x.className = "navbar";
-        }
-    }
+/* ── Typewriter ──────────────────────────────────────── */
+(function () {
+  const roles = [
+    'Pratham Gupta',
+    'Cybersecurity Specialist',
+    'Software Developer'
+  ];
+  const el = document.getElementById('tw');
+  let ri = 0, ci = 0, del = false;
 
-    // Smooth scrolling for anchor links
-    function smoothScroll(target) {
-        const element = document.querySelector(target);
-        if (element) {
-            element.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    }
+  function tick() {
+    const w = roles[ri];
+    el.textContent = del ? w.slice(0, --ci) : w.slice(0, ++ci);
+    let ms = del ? 42 : 92;
+    if (!del && ci === w.length)      { ms = 2200; del = true; }
+    else if (del && ci === 0) { del = false; ri = (ri + 1) % roles.length; ms = 380; }
+    setTimeout(tick, ms);
+  }
+  setTimeout(tick, 700);
+})();
 
-    // Add scroll effect to navbar
-    window.addEventListener('scroll', function() {
-        const navbar = document.getElementById('myNavbar');
-        if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(10, 10, 10, 0.98)';
-        } else {
-            navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-        }
-    });
+/* ── Show More toggle ────────────────────────────────── */
+function toggleReadMore(event) {
+  const link = event.target;
+  const more = link.closest('.exp-card').querySelector('.more-content');
+  const open = more.style.display === 'block';
+  more.style.display = open ? 'none' : 'block';
+  link.textContent = open ? 'Show More ▾' : 'Show Less ▴';
+}
 
-    // Enhanced typing animation with multiple lines
-    document.addEventListener("DOMContentLoaded", function() {
-        const texts = [
-            "Pratham Gupta",
-            "Cybersecurity Specialist",
-            "Software Developer"
-        ];
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const speed = 100;
-        const deleteSpeed = 50;
-        const pauseTime = 2000;
-        const typingText = document.getElementById("typing-text");
+/* ── Mobile nav ──────────────────────────────────────── */
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('ham').classList.toggle('open');
+}
 
-        function typeWriter() {
-            const currentText = texts[textIndex];
-            const prefix = "$> ";
-            
-            if (isDeleting) {
-                typingText.innerHTML = prefix + currentText.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typingText.innerHTML = prefix + currentText.substring(0, charIndex + 1);
-                charIndex++;
-            }
+document.querySelectorAll('.nav-links a').forEach(a =>
+  a.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.remove('open');
+    document.getElementById('ham').classList.remove('open');
+  })
+);
 
-            let currentSpeed = isDeleting ? deleteSpeed : speed;
+/* ── Active nav on scroll ────────────────────────────── */
+const navAs = document.querySelectorAll('.nav-links a[href^="#"]');
 
-            if (!isDeleting && charIndex === currentText.length) {
-                currentSpeed = pauseTime;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % texts.length;
-                currentSpeed = 500;
-            }
+const sectionIO = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting)
+      navAs.forEach(a =>
+        a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id)
+      );
+  });
+}, { rootMargin: '-38% 0px -57% 0px' });
+document.querySelectorAll('section[id]').forEach(s => sectionIO.observe(s));
 
-            setTimeout(typeWriter, currentSpeed);
-        }
+/* ── Scroll reveal ───────────────────────────────────── */
+const revIO = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); revIO.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
 
-        // Start typing animation
-        setTimeout(typeWriter, 200);
-
-        // Load content with fade-in animation
-        function loadContent(id, file) {
-            fetch(file)
-                .then(response => response.text())
-                .then(data => {
-                    const element = document.getElementById(id);
-                    element.innerHTML += data;
-                    
-                    // Add fade-in animation to loaded content
-                    const cards = element.querySelectorAll('.card');
-                    cards.forEach((card, index) => {
-                        card.style.opacity = '0';
-                        card.style.transform = 'translateY(20px)';
-                        setTimeout(() => {
-                            card.style.transition = 'all 0.6s ease';
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, index * 100);
-                    });
-                })
-                .catch(error => console.error('Error loading content:', error));
-        }
-
-        // Load content with staggered animation
-        setTimeout(() => {
-            loadContent('experience', './pages/experienceShort.html');
-        }, 200);
-        
-        setTimeout(() => {
-            loadContent('projects', './pages/projects.html');
-        }, 200);
-
-        // Add click effects to cards
-        document.addEventListener('click', function(e) {
-            if (e.target.closest('.card')) {
-                const card = e.target.closest('.card');
-                card.style.transform = 'scale(0.98)';
-                setTimeout(() => {
-                    card.style.transform = '';
-                }, 150);
-            }
-        });
-
-        // Add parallax effect to main image
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const mainImage = document.querySelector('.main-image img');
-            if (mainImage) {
-                const rate = scrolled * -0.5;
-                mainImage.style.transform = `translateY(${rate}px)`;
-            }
-        });
-
-        // Add intersection observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all columns for animation
-        setTimeout(() => {
-            const columns = document.querySelectorAll('.column');
-            columns.forEach(column => {
-                observer.observe(column);
-            });
-        }, 3000);
-    });
-
-    // Add keyboard navigation
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            const navbar = document.getElementById('myNavbar');
-            if (navbar.classList.contains('responsive')) {
-                navbar.classList.remove('responsive');
-            }
-        }
-    });
-
+document.querySelectorAll('.reveal').forEach(el => revIO.observe(el));
 </script>
 
 </body>

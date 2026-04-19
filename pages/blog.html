@@ -6,123 +6,8 @@
     <title>Pratham Gupta - Blog</title>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="../style.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Fira Code', monospace;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
-            color: #39DA39;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        .navbar {
-            width: 100%;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(57, 218, 57, 0.2);
-            overflow: hidden;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .navbar a {
-            display: block;
-            color: #39DA39;
-            text-align: center;
-            padding: 16px 24px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .navbar .nav-links {
-            float: right;
-        }
-
-        .navbar .nav-links a {
-            float: left;
-        }
-
-        .navbar .brand {
-            float: left;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        .navbar a:hover {
-            background: rgba(57, 218, 57, 0.1);
-            color: #ffffff;
-            transform: translateY(-2px);
-        }
-
-        .navbar a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: #39DA39;
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .navbar a:hover::after {
-            width: 80%;
-        }
-
-        .navbar .icon {
-            display: none;
-        }
-
-        .main-content {
-            padding-top: 80px;
-            width: 90%;
-            max-width: 1200px;
-            margin-top: 20px;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .main-text {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .main-text h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 0 0 20px rgba(57, 218, 57, 0.5);
-        }
-
-        .main-image {
-            text-align: center;
-            margin: 40px 0;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .main-image img {
-            filter: drop-shadow(0 0 20px rgba(57, 218, 57, 0.3));
-            transition: transform 0.3s ease;
-        }
-
-        .main-image img:hover {
-            transform: scale(1.05);
-        }
-
         .blog-intro {
             text-align: center;
             margin: 30px 0;
@@ -142,7 +27,7 @@
 
         .blog-posts {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
             margin: 40px 0;
         }
@@ -170,9 +55,7 @@
             transition: left 0.5s ease;
         }
 
-        .blog-post:hover::before {
-            left: 100%;
-        }
+        .blog-post:hover::before { left: 100%; }
 
         .blog-post:hover {
             transform: translateY(-5px);
@@ -183,8 +66,7 @@
         .blog-post h3 {
             color: #39DA39;
             margin-bottom: 15px;
-            font-size: 1.3rem;
-            text-shadow: 0 0 10px rgba(57, 218, 57, 0.3);
+            font-size: 1.2rem;
         }
 
         .blog-post .date {
@@ -199,32 +81,27 @@
             margin-bottom: 15px;
         }
 
-        .blog-post .read-more {
+        .read-more-link {
             color: #39DA39;
             text-decoration: none;
             font-weight: 700;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
+            gap: 6px;
         }
 
-        .blog-post .read-more:hover {
+        .read-more-link:hover {
             color: #ffffff;
             text-shadow: 0 0 10px rgba(57, 218, 57, 0.5);
         }
 
-        .blog-post .read-more i {
-            margin-left: 8px;
-            transition: transform 0.3s ease;
-        }
+        .read-more-link:hover i { transform: translateX(5px); }
+        .read-more-link i { transition: transform 0.3s ease; }
 
-        .blog-post .read-more:hover i {
-            transform: translateX(5px);
-        }
-
-        .coming-soon {
+        .coming-soon-box {
             text-align: center;
-            margin: 60px 0;
+            margin: 40px 0;
             padding: 40px;
             background: linear-gradient(145deg, rgba(31, 31, 31, 0.8), rgba(20, 20, 20, 0.9));
             border: 1px solid rgba(57, 218, 57, 0.2);
@@ -232,105 +109,36 @@
             color: #ffffff;
         }
 
-        .coming-soon h2 {
+        .coming-soon-box h2 {
             color: #39DA39;
             margin-bottom: 20px;
-            font-size: 2rem;
+            font-size: 1.8rem;
             text-shadow: 0 0 20px rgba(57, 218, 57, 0.5);
         }
 
-        .coming-soon p {
-            color: #ccc;
-            font-size: 1.1rem;
-            line-height: 1.6;
+        .coming-soon-box p { color: #ccc; line-height: 1.8; }
+        .coming-soon-box a { color: #39DA39; text-decoration: none; }
+        .coming-soon-box a:hover { color: #fff; }
+
+        .toast {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(57, 218, 57, 0.15);
+            border: 1px solid rgba(57, 218, 57, 0.5);
+            color: #39DA39;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.95rem;
+            z-index: 9999;
+            animation: fadeIn 0.3s ease;
         }
 
-        .typing-effect::after {
-            content: '_';
-            animation: blink-caret 1s step-end infinite;
-        }
-
-        @keyframes blink-caret {
-            from, to { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* Enhanced mobile responsiveness */
         @media screen and (max-width: 768px) {
-            .main-content {
-                width: 95%;
-                padding-top: 70px;
-            }
-
-            .main-text h1 {
-                font-size: 2rem;
-            }
-
-            .blog-posts {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .navbar a {
-                padding: 12px 16px;
-            }
-        }
-
-        @media screen and (max-width: 600px) {
-            .navbar .nav-links a { display: none; }
-            .navbar a.icon {
-                float: right;
-                display: block;
-                padding: 16px 20px;
-            }
-        }
-
-        @media screen and (max-width: 600px) {
-            .navbar.responsive { position: relative; }
-            .navbar.responsive .icon {
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
-            .navbar.responsive .nav-links a {
-                float: none;
-                display: block;
-                text-align: left;
-            }
-        }
-
-        /* Scrollbar styling */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #1a1a1a;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #39DA39;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #2bb82b;
+            .blog-posts { grid-template-columns: 1fr; gap: 20px; }
         }
     </style>
 </head>
@@ -339,13 +147,11 @@
 <div class="navbar" id="myNavbar">
     <a href="https://prathamgupta.github.io" class="brand">Pratham Gupta</a>
     <div class="nav-links">
-        <!-- <a href="https://prathamgupta.github.io/files/Resume.pdf" target="_blank">Resume</a> -->
+        <a href="https://prathamgupta.github.io/files/Resume.pdf" target="_blank">Resume</a>
         <a href="https://prathamgupta.github.io/pages/about">About</a>
         <a href="https://prathamgupta.github.io/pages/blog">Blog</a>
         <a href="https://prathamgupta.github.io/pages/contact">Contact</a>
-        <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
-            &#9776;
-        </a>
+        <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">&#9776;</a>
     </div>
 </div>
 
@@ -353,225 +159,77 @@
     <div class="main-text">
         <h1><span id="typing-text" class="typing-effect"></span></h1>
     </div>
-    <div class="main-image">
-        <img src="../images/only_white_lines_transparent.png" alt="Placeholder Image" width="300">
-    </div>
-    
+
     <div class="blog-intro">
         <h2>$cat Blog</h2>
-        <p>Welcome to my blog! Here I share insights about cybersecurity, software development, and technology trends. Stay tuned for regular updates on security best practices, coding tutorials, and industry analysis.</p>
+        <p>Insights on cybersecurity, offensive security techniques, and software development. Posts coming soon.</p>
     </div>
 
     <div class="blog-posts">
-        <div class="blog-post" onclick="showComingSoon()">
+        <div class="blog-post" onclick="showToast()">
             <h3>Understanding Zero-Trust Architecture</h3>
             <div class="date">Coming Soon</div>
-            <div class="excerpt">
-                A deep dive into zero-trust security models and how they're revolutionizing enterprise security. Learn about the principles, implementation strategies, and real-world applications.
-            </div>
-            <a href="#" class="read-more" onclick="event.stopPropagation(); showComingSoon();">
-                Read More <i class="fas fa-arrow-right"></i>
-            </a>
+            <div class="excerpt">A deep dive into zero-trust security models and how they're reshaping enterprise security. Principles, implementation strategies, and real-world applications.</div>
+            <a href="#" class="read-more-link" onclick="event.preventDefault(); showToast();">Read More <i class="fas fa-arrow-right"></i></a>
         </div>
 
-        <div class="blog-post" onclick="showComingSoon()">
-            <h3>DevSecOps: Integrating Security into CI/CD</h3>
+        <div class="blog-post" onclick="showToast()">
+            <h3>DevSecOps: Security in CI/CD Pipelines</h3>
             <div class="date">Coming Soon</div>
-            <div class="excerpt">
-                Explore how to seamlessly integrate security practices into your development pipeline. From automated security testing to compliance monitoring.
-            </div>
-            <a href="#" class="read-more" onclick="event.stopPropagation(); showComingSoon();">
-                Read More <i class="fas fa-arrow-right"></i>
-            </a>
+            <div class="excerpt">How to seamlessly integrate security practices into your development pipeline — from automated scanning to compliance monitoring.</div>
+            <a href="#" class="read-more-link" onclick="event.preventDefault(); showToast();">Read More <i class="fas fa-arrow-right"></i></a>
         </div>
 
-        <div class="blog-post" onclick="showComingSoon()">
+        <div class="blog-post" onclick="showToast()">
             <h3>Penetration Testing: A Beginner's Guide</h3>
             <div class="date">Coming Soon</div>
-            <div class="excerpt">
-                Learn the fundamentals of ethical hacking and penetration testing. Tools, methodologies, and legal considerations for aspiring security professionals.
-            </div>
-            <a href="#" class="read-more" onclick="event.stopPropagation(); showComingSoon();">
-                Read More <i class="fas fa-arrow-right"></i>
-            </a>
+            <div class="excerpt">Fundamentals of ethical hacking and penetration testing. Tools, methodologies, and legal considerations for aspiring security professionals.</div>
+            <a href="#" class="read-more-link" onclick="event.preventDefault(); showToast();">Read More <i class="fas fa-arrow-right"></i></a>
         </div>
 
-        <div class="blog-post" onclick="showComingSoon()">
+        <div class="blog-post" onclick="showToast()">
             <h3>Cloud Security Best Practices</h3>
             <div class="date">Coming Soon</div>
-            <div class="excerpt">
-                Essential security considerations for cloud environments. Covering AWS, Azure, and GCP security configurations and monitoring strategies.
-            </div>
-            <a href="#" class="read-more" onclick="event.stopPropagation(); showComingSoon();">
-                Read More <i class="fas fa-arrow-right"></i>
-            </a>
+            <div class="excerpt">Essential security considerations for cloud environments — AWS, Azure, and GCP security configurations and monitoring strategies.</div>
+            <a href="#" class="read-more-link" onclick="event.preventDefault(); showToast();">Read More <i class="fas fa-arrow-right"></i></a>
         </div>
 
-        <div class="blog-post" onclick="showComingSoon()">
+        <div class="blog-post" onclick="showToast()">
             <h3>Building Secure APIs</h3>
             <div class="date">Coming Soon</div>
-            <div class="excerpt">
-                A comprehensive guide to API security. Authentication, authorization, input validation, and common vulnerabilities to avoid.
-            </div>
-            <a href="#" class="read-more" onclick="event.stopPropagation(); showComingSoon();">
-                Read More <i class="fas fa-arrow-right"></i>
-            </a>
+            <div class="excerpt">A comprehensive guide to API security — authentication, authorization, input validation, and common vulnerabilities to avoid.</div>
+            <a href="#" class="read-more-link" onclick="event.preventDefault(); showToast();">Read More <i class="fas fa-arrow-right"></i></a>
         </div>
 
-        <div class="blog-post" onclick="showComingSoon()">
+        <div class="blog-post" onclick="showToast()">
             <h3>Incident Response Planning</h3>
             <div class="date">Coming Soon</div>
-            <div class="excerpt">
-                How to prepare for and respond to security incidents. Creating effective incident response plans and building resilient security teams.
-            </div>
-            <a href="#" class="read-more" onclick="event.stopPropagation(); showComingSoon();">
-                Read More <i class="fas fa-arrow-right"></i>
-            </a>
+            <div class="excerpt">How to prepare for and respond to security incidents — creating effective response plans and building resilient security teams.</div>
+            <a href="#" class="read-more-link" onclick="event.preventDefault(); showToast();">Read More <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
 
-    <div class="coming-soon">
+    <div class="coming-soon-box">
         <h2>$echo "Blog Under Construction"</h2>
-        <p>I'm currently working on creating valuable content for the cybersecurity and software development community. New posts will be published regularly, covering topics like:</p>
-        <br>
-        <p>• Security architecture and design patterns</p>
-        <p>• Hands-on tutorials and walkthroughs</p>
-        <p>• Industry insights and career advice</p>
-        <p>• Tool reviews and comparisons</p>
-        <p>• Case studies and real-world experiences</p>
-        <br>
-        <p>Stay connected by following me on <a href="https://www.linkedin.com/in/prathamguptaaa" target="_blank" style="color: #39DA39; text-decoration: none;">LinkedIn</a> or <a href="https://twitter.com/prathammguptaa" target="_blank" style="color: #39DA39; text-decoration: none;">Twitter</a> for updates!</p>
+        <p>Posts on security architecture, hands-on tutorials, tool reviews, and real-world case studies are in the pipeline.<br><br>
+        Stay connected on <a href="https://www.linkedin.com/in/prathamguptaaa" target="_blank">LinkedIn</a> or <a href="https://twitter.com/prathammguptaa" target="_blank">Twitter</a> for updates.</p>
     </div>
 </div>
 
+<div class="toast" id="toast">Post coming soon — stay tuned!</div>
+
+<script src="../script.js"></script>
 <script>
-    function toggleMenu() {
-        var x = document.getElementById("myNavbar");
-        if (x.className === "navbar") {
-            x.className += " responsive";
-        } else {
-            x.className = "navbar";
-        }
+    document.addEventListener("DOMContentLoaded", function () {
+        initTypewriter(["Pratham Gupta", "Cybersecurity Blog", "Tech Insights"]);
+    });
+
+    function showToast() {
+        const toast = document.getElementById('toast');
+        toast.style.display = 'block';
+        clearTimeout(toast._timer);
+        toast._timer = setTimeout(() => { toast.style.display = 'none'; }, 3000);
     }
-
-    function showComingSoon() {
-        alert("🚧 Blog post coming soon! Stay tuned for valuable cybersecurity and development content.");
-    }
-
-    // Add scroll effect to navbar
-    window.addEventListener('scroll', function() {
-        const navbar = document.getElementById('myNavbar');
-        if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(10, 10, 10, 0.98)';
-        } else {
-            navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-        }
-    });
-
-    // Enhanced typing animation with multiple lines
-    document.addEventListener("DOMContentLoaded", function() {
-        const texts = [
-            "Pratham Gupta",
-            "Cybersecurity Blog",
-            "Tech Insights"
-        ];
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const speed = 100;
-        const deleteSpeed = 50;
-        const pauseTime = 2000;
-        const typingText = document.getElementById("typing-text");
-
-        function typeWriter() {
-            const currentText = texts[textIndex];
-            const prefix = "$> ";
-            
-            if (isDeleting) {
-                typingText.innerHTML = prefix + currentText.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typingText.innerHTML = prefix + currentText.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            let currentSpeed = isDeleting ? deleteSpeed : speed;
-
-            if (!isDeleting && charIndex === currentText.length) {
-                currentSpeed = pauseTime;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % texts.length;
-                currentSpeed = 500;
-            }
-
-            setTimeout(typeWriter, currentSpeed);
-        }
-
-        // Start typing animation
-        setTimeout(typeWriter, 1000);
-
-        // Add click effects to blog posts
-        document.addEventListener('click', function(e) {
-            if (e.target.closest('.blog-post')) {
-                const post = e.target.closest('.blog-post');
-                post.style.transform = 'scale(0.98)';
-                setTimeout(() => {
-                    post.style.transform = '';
-                }, 150);
-            }
-        });
-
-        // Add parallax effect to main image
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const mainImage = document.querySelector('.main-image img');
-            if (mainImage) {
-                const rate = scrolled * -0.5;
-                mainImage.style.transform = `translateY(${rate}px)`;
-            }
-        });
-
-        // Add intersection observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all blog posts for animation
-        setTimeout(() => {
-            const posts = document.querySelectorAll('.blog-post');
-            posts.forEach((post, index) => {
-                post.style.opacity = '0';
-                post.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    post.style.transition = 'all 0.6s ease';
-                    post.style.opacity = '1';
-                    post.style.transform = 'translateY(0)';
-                }, index * 100);
-            });
-        }, 2000);
-    });
-
-    // Add keyboard navigation
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            const navbar = document.getElementById('myNavbar');
-            if (navbar.classList.contains('responsive')) {
-                navbar.classList.remove('responsive');
-            }
-        }
-    });
-
 </script>
 
 </body>

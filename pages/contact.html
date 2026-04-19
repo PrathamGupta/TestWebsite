@@ -3,290 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pratham Gupta</title>
+    <title>Pratham Gupta - Contact</title>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Fira Code', monospace;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
-            color: #39DA39;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        .navbar {
-            width: 100%;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(57, 218, 57, 0.2);
-            overflow: hidden;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .navbar a {
-            display: block;
-            color: #39DA39;
-            text-align: center;
-            padding: 16px 24px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .navbar .nav-links {
-            float: right;
-        }
-
-        .navbar .nav-links a {
-            float: left;
-        }
-
-        .navbar .brand {
-            float: left;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        .navbar a:hover {
-            background: rgba(57, 218, 57, 0.1);
-            color: #ffffff;
-            transform: translateY(-2px);
-        }
-
-        .navbar a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: #39DA39;
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .navbar a:hover::after {
-            width: 80%;
-        }
-
-        .navbar .icon {
-            display: none;
-        }
-
-        .main-content {
-            padding-top: 80px;
-            width: 90%;
-            max-width: 1200px;
-            text-align: center;
-            margin-top: 20px;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .main-text {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .main-text h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 0 0 20px rgba(57, 218, 57, 0.5);
-        }
-
-        .main-image {
-            margin: 40px 0;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .main-image img {
-            filter: drop-shadow(0 0 20px rgba(57, 218, 57, 0.3));
-            transition: transform 0.3s ease;
-        }
-
-        .main-image img:hover {
-            transform: scale(1.05);
-        }
-
-        .content {
-            display: flex;
-            justify-content: space-between;
-            margin: 30px 0;
-            gap: 30px;
-        }
-
-        .column {
-            width: 48%;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .column h2 {
-            color: #39DA39;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-            text-shadow: 0 0 10px rgba(57, 218, 57, 0.3);
-        }
-
-        .column a {
-            color: #ffffff;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-            font-size: 1.1rem;
-        }
-
-        .column a i {
-            margin-right: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .column a:hover {
-            color: #39DA39;
-            text-decoration: none;
-            transform: translateX(5px);
-        }
-
-        .column a:hover i {
-            transform: scale(1.2);
-        }
-
-        .card {
-            background: linear-gradient(145deg, rgba(31, 31, 31, 0.8), rgba(20, 20, 20, 0.9));
-            border: 1px solid rgba(57, 218, 57, 0.2);
-            padding: 25px;
-            margin: 15px 0;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(57, 218, 57, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .card:hover::before {
-            left: 100%;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(57, 218, 57, 0.5);
-            box-shadow: 0 10px 30px rgba(57, 218, 57, 0.2);
-        }
-
-        .typing-effect::after {
-            content: '_';
-            animation: blink-caret 1s step-end infinite;
-        }
-
-        @keyframes blink-caret {
-            from, to { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* Enhanced mobile responsiveness */
-        @media screen and (max-width: 768px) {
-            .main-content {
-                width: 95%;
-                padding-top: 70px;
-            }
-
-            .main-text h1 {
-                font-size: 2rem;
-            }
-
-            .content {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .column {
-                width: 100%;
-            }
-
-            .navbar a {
-                padding: 12px 16px;
-            }
-        }
-
-        @media screen and (max-width: 600px) {
-            .navbar .nav-links a { display: none; }
-            .navbar a.icon {
-                float: right;
-                display: block;
-                padding: 16px 20px;
-            }
-        }
-
-        @media screen and (max-width: 600px) {
-            .navbar.responsive { position: relative; }
-            .navbar.responsive .icon {
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
-            .navbar.responsive .nav-links a {
-                float: none;
-                display: block;
-                text-align: left;
-            }
-        }
-
-        /* Scrollbar styling */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #1a1a1a;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #39DA39;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #2bb82b;
-        }
+        .main-content { text-align: center; }
+        .column a { font-size: 1.1rem; }
     </style>
 </head>
 <body>
@@ -294,13 +17,11 @@
 <div class="navbar" id="myNavbar">
     <a href="https://prathamgupta.github.io" class="brand">Pratham Gupta</a>
     <div class="nav-links">
-        <!-- <a href="https://prathamgupta.github.io/files/Resume.pdf" target="_blank">Resume</a> -->
+        <a href="https://prathamgupta.github.io/files/Resume.pdf" target="_blank">Resume</a>
         <a href="https://prathamgupta.github.io/pages/about">About</a>
         <a href="https://prathamgupta.github.io/pages/blog">Blog</a>
         <a href="https://prathamgupta.github.io/pages/contact">Contact</a>
-        <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
-            &#9776;
-        </a>
+        <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">&#9776;</a>
     </div>
 </div>
 
@@ -309,156 +30,32 @@
         <h1><span id="typing-text" class="typing-effect"></span></h1>
     </div>
     <div class="content">
-        <div class="column" id="email">
+        <div class="column">
             <h2>$cat Email</h2>
-            <p><a href="mailto:pratham.gupta@nyu.edu" target="_blank" class="text-xl duration-200 ease-in-out"><i class="fas fa-envelope"></i> pratham.gupta2k@gmail.com</a></p>
+            <p><a href="mailto:pratham.gupta2k@gmail.com"><i class="fas fa-envelope"></i> pratham.gupta2k@gmail.com</a></p>
         </div>
-        <div class="column" id="linkedin">
+        <div class="column">
             <h2>$cat LinkedIn</h2>
-            <a href="https://www.linkedin.com/in/prathamguptaaa" target="_blank" class="text-xl duration-200 ease-in-out"><i class="fab fa-linkedin"></i> PrathamGuptaaa</a>
+            <a href="https://www.linkedin.com/in/prathamguptaaa" target="_blank"><i class="fab fa-linkedin"></i> PrathamGuptaaa</a>
         </div>
     </div>
     <div class="content">
-        <div class="column" id="github">
+        <div class="column">
             <h2>$cat GitHub</h2>
-            <a href="https://github.com/prathamgupta" target="_blank" class="text-xl duration-200 ease-in-out"><i class="fab fa-github"></i> PrathamGupta</a>
+            <a href="https://github.com/prathamgupta" target="_blank"><i class="fab fa-github"></i> PrathamGupta</a>
         </div>
-        <div class="column" id="twitter">
+        <div class="column">
             <h2>$cat Twitter</h2>
-            <a href="https://twitter.com/prathammguptaa" target="_blank" class="text-xl duration-200 ease-in-out"><i class="fab fa-x-twitter"></i> PrathammGuptaa</a>
+            <a href="https://twitter.com/prathammguptaa" target="_blank"><i class="fab fa-x-twitter"></i> PrathammGuptaa</a>
         </div>
     </div>
 </div>
 
+<script src="../script.js"></script>
 <script>
-    function toggleMenu() {
-        var x = document.getElementById("myNavbar");
-        if (x.className === "navbar") {
-            x.className += " responsive";
-        } else {
-            x.className = "navbar";
-        }
-    }
-
-    // Smooth scrolling for anchor links
-    function smoothScroll(target) {
-        const element = document.querySelector(target);
-        if (element) {
-            element.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    }
-
-    // Add scroll effect to navbar
-    window.addEventListener('scroll', function() {
-        const navbar = document.getElementById('myNavbar');
-        if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(10, 10, 10, 0.98)';
-        } else {
-            navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-        }
+    document.addEventListener("DOMContentLoaded", function () {
+        initTypewriter(["Pratham Gupta", "Cybersecurity Specialist", "Software Developer"]);
     });
-
-    // Enhanced typing animation with multiple lines
-    document.addEventListener("DOMContentLoaded", function() {
-        const texts = [
-            "Pratham Gupta",
-            "Cybersecurity Specialist",
-            "Software Developer"
-        ];
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const speed = 100;
-        const deleteSpeed = 50;
-        const pauseTime = 2000;
-        const typingText = document.getElementById("typing-text");
-
-        function typeWriter() {
-            const currentText = texts[textIndex];
-            const prefix = "$> ";
-            
-            if (isDeleting) {
-                typingText.innerHTML = prefix + currentText.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typingText.innerHTML = prefix + currentText.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            let currentSpeed = isDeleting ? deleteSpeed : speed;
-
-            if (!isDeleting && charIndex === currentText.length) {
-                currentSpeed = pauseTime;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % texts.length;
-                currentSpeed = 500;
-            }
-
-            setTimeout(typeWriter, currentSpeed);
-        }
-
-        // Start typing animation
-        setTimeout(typeWriter, 1000);
-
-        // Add click effects to cards
-        document.addEventListener('click', function(e) {
-            if (e.target.closest('.card')) {
-                const card = e.target.closest('.card');
-                card.style.transform = 'scale(0.98)';
-                setTimeout(() => {
-                    card.style.transform = '';
-                }, 150);
-            }
-        });
-
-        // Add parallax effect to main image
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const mainImage = document.querySelector('.main-image img');
-            if (mainImage) {
-                const rate = scrolled * -0.5;
-                mainImage.style.transform = `translateY(${rate}px)`;
-            }
-        });
-
-        // Add intersection observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all columns for animation
-        setTimeout(() => {
-            const columns = document.querySelectorAll('.column');
-            columns.forEach(column => {
-                observer.observe(column);
-            });
-        }, 3000);
-    });
-
-    // Add keyboard navigation
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            const navbar = document.getElementById('myNavbar');
-            if (navbar.classList.contains('responsive')) {
-                navbar.classList.remove('responsive');
-            }
-        }
-    });
-
 </script>
 
 </body>
