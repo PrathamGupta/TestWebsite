@@ -162,7 +162,7 @@
     }
 
     .hero-logo {
-      width:180px;
+      width:clamp(200px, 22vw, 380px);
       filter:drop-shadow(0 0 28px rgba(57,218,57,.4));
       animation:float 4s ease-in-out infinite;
       margin-bottom:20px;
@@ -363,7 +363,7 @@
       .nav-links a { font-size:.88rem; padding:10px 12px; }
       .ham { display:flex; }
 
-      .hero-logo { width:140px; margin-bottom:20px; }
+      .hero-logo { width:clamp(120px, 28vw, 200px); margin-bottom:16px; }
       .hero-name { font-size:clamp(1.5rem,7vw,2.4rem); }
       .hero-typerow { font-size:clamp(.85rem,3.5vw,1.1rem); }
       .badge-row { gap:6px; }
@@ -381,7 +381,7 @@
       .sec { padding:56px 4% 36px; }
       .cta-row { flex-direction:column; align-items:center; }
       .btn { width:200px; justify-content:center; }
-      .hero-logo { width:110px; }
+      .hero-logo { width:clamp(100px, 30vw, 160px); }
     }
   </style>
 </head>
@@ -419,8 +419,10 @@
     <span class="badge">MS Cybersecurity · NYU</span>
     <span class="badge">4.0 GPA</span>
     <span class="badge">Academic Excellence Award</span>
-    <span class="badge">Red Team · Offensive Security</span>
+    <span class="badge">Application Security</span>
     <span class="badge">Cloud Security</span>
+    <span class="badge">Security Architecture</span>
+    <span class="badge">Risk &amp; Compliance</span>
   </div>
 
   <div class="cta-row">
@@ -629,7 +631,7 @@
       <img src="/images/iiitd1.png" alt="IIIT Delhi" class="edu-logo">
       <div class="edu-info">
         <h3>IIIT Delhi</h3>
-        <p>B.Tech in Computer Science</p>
+        <p>B.Tech in Computer Science<br>3.5 GPA</p>
         <span class="edu-badge">Dean's List</span>
       </div>
     </div>
@@ -692,8 +694,9 @@
 /* ── Typewriter ──────────────────────────────────────── */
 (function () {
   const roles = [
-    'Pratham Gupta',
     'Cybersecurity Specialist',
+    'Security Engineer',
+    'Red Team Operator',
     'Software Developer'
   ];
   const el = document.getElementById('tw');
